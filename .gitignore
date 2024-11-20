@@ -1,0 +1,21 @@
+# Laravel
+/Laravel-11/vendor          
+/Laravel-11/public/storage   
+.storage          
+
+# IDE
+.idea            
+.vscode  
+
+# Logs and cache
+/Laravel-11/storage/logs   
+/Laravel-11/storage/framework/cache/data 
+/Laravel-11/storage/framework/sessions  
+/Laravel-11/storage/framework/views      
+
+
+.DS_Store          
+Thumbs.db 
+
+*.swp
+*.swo 

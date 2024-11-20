@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  laravel-11:
+    build:
+      context: ./laravel-11
+    image: laravel-11
+    container_name: laravel-11
+    ports:
+      - "8001:80"
+    volumes:
+      - ./laravel-11:/var/www/html
+    networks:
+      - my-network
+    environment:
+      - DB_CONNECTION=sqlite 
+      - DB_DATABASE=/var/www/html/database/database.sqlite 
+
+networks:
+  my-network:
