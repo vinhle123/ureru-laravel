@@ -1,20 +1,21 @@
 version: '3.8'
 
 services:
-  laravel-11:
+  laravel-token:
     build:
-      context: ./laravel-11
-    image: laravel-11
-    container_name: laravel-11
+      context: ./php  # Đảm bảo thư mục ./LaravelToken chứa Dockerfile và mã nguồn
+    image: laravel-token  # Đảm bảo tên image là chữ thường
+    container_name: laravel-token  # Tên container có thể chứa chữ hoa
     ports:
-      - "8001:80"
+      - "8001:80"  # Ánh xạ cổng 8001 trên máy chủ tới cổng 80 trong container
     volumes:
-      - ./laravel-11:/var/www/html
+      - ./LaravelToken:/var/www/html  # Ánh xạ thư mục ./LaravelToken vào /var/www/html trong container
     networks:
-      - my-network
+      - my-network  # Kết nối vào mạng tùy chỉnh (có thể bỏ qua nếu không cần thiết)
     environment:
-      - DB_CONNECTION=sqlite 
-      - DB_DATABASE=/var/www/html/database/database.sqlite 
+      - DB_CONNECTION=sqlite  # Cấu hình kết nối cơ sở dữ liệu SQLite
+      - DB_DATABASE=/var/www/html/database/database.sqlite  # Đảm bảo đường dẫn đúng tới SQLite
 
 networks:
-  my-network:
+  my-network:  # Định nghĩa mạng tùy chỉnh
+    driver: bridge  # Mạng bridge là mặc định, có thể bỏ qua nếu không cần thiết
